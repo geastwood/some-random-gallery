@@ -13,13 +13,28 @@
 
   <!-- include source files here... -->
   <script src="js/util.js"></script>
+  <script src="js/query.js"></script>
   <script src="js/main.js"></script>
 
   <!-- include spec files here... -->
   <script src="spec/all.js"></script>
+  <style>
+    #fixture {
+        display: none;
+    }
+  </style>
 
 </head>
 
 <body>
+    <div id="fixture">
+        <ul id="first-level">
+            <li class="first another-cls">1</li>
+            <li class="middle another-cls">2</li>
+            <li class="middle">3</li>
+            <li class="last">4</li>
+        </ul>
+        <p class="text-p"><span class="text-span"><b class="text-b">some text</b></span></p>
+    </div>
 </body>
 </html>
