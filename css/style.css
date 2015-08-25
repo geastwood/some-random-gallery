@@ -30,8 +30,10 @@
     width: 100%;
 }
 .navigation .move-left {
+    cursor: pointer;
     float: left;
 }
 .navigation .move-right {
+    cursor: pointer;
     float: right;
 }

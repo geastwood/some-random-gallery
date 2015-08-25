@@ -1,6 +1,7 @@
 var protoMap = Array.prototype.map;
 var Query = function(node) {
     this.el = node;
+    this.events = {};
 };
 Query.prototype.attr = function(attr, value) {
     /* jshint eqnull: true */
@@ -23,6 +24,23 @@ Object.defineProperty(Query.prototype, 'cls', {
         return this.el ? this.el.classList : [];
     }
 });
+Query.prototype.on = function(selector, event, fn) {
+    var targets = this.all(selector),
+    cb = function(ev) {
+        if (targets.some(function(el) {return el.el === ev.target;})) {
+            fn.call(this, ev);
+        }
+    }.bind(this);
+    this.el.addEventListener(event, cb, false);
+
+    this.events[event] = cb;
+};
+Query.prototype.off = function(event) {
+    if (this.events[event]) {
+        this.el.removeEventListener(event, this.events[event]);
+        this.events[event] = null;
+    }
+};
 
 Query.all = function(selector, context) {
     return protoMap.call((context || document).querySelectorAll(selector), Query.create);
