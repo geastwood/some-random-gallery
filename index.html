@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Some Random Gallery</title>
-    <script src="js/query.js"></script>
-    <script src="js/util.js"></script>
-    <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <div class="container-wrapper">
     <h1>Gallery demos</h1>
-
+    <div class="gallery-container size-600x350">
+        <div class="navigation">
+            <div class="move-left"><img src="images/arrow_left.png" alt="left"></div>
+            <div class="move-right"><img src="images/arrow_right.png" alt="right"></div>
+        </div>
+        <div class="indicator">1/2</div>
+        <ul class="gallery-content">
+            <li><img src="http://lorempixel.com/600/350/?1" alt="image 1"></li>
+            <li><img src="http://lorempixel.com/600/350/?2" alt="image 2"></li>
+        </ul>
+    </div>
+    <hr />
+    <div class="gallery-container size-600x350">
+        <div class="navigation">
+            <div class="move-left"><img src="images/arrow_left.png" alt="left"></div>
+            <div class="move-right"><img src="images/arrow_right.png" alt="right"></div>
+        </div>
+        <div class="indicator">1/2</div>
+        <ul class="gallery-content">
+            <li><img src="http://lorempixel.com/600/350/?100" alt="image 1"></li>
+            <li><img src="http://lorempixel.com/600/350/?101" alt="image 2"></li>
+            <li><img src="http://lorempixel.com/600/350/?102" alt="image 3"></li>
+        </ul>
+    </div>
 </div>
+
+<script src="js/query.js"></script>
+<script src="js/util.js"></script>
+<script src="js/main.js"></script>
+<script>
+    GalleryManager.init();
+</script>
+
 </body>
 </html>

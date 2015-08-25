@@ -2,3 +2,36 @@
     margin: 0 auto;
     width: 980px;
 }
+
+.gallery-container.size-600x350 {
+    width: 600px;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+.gallery-content {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.indicator {
+    position: absolute;
+    width: 40px;
+    margin-left: -20px;
+    bottom: 0;
+    left: 50%;
+    color: red;
+    font-weight: bold;
+}
+.navigation {
+    position: absolute;
+    top: 50%;
+    margin-top: -66px;
+    width: 100%;
+}
+.navigation .move-left {
+    float: left;
+}
+.navigation .move-right {
+    float: right;
+}

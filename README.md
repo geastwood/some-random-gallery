@@ -25,3 +25,5 @@ Query is a constructor function, object instantiated receives:
 * all (method) -> same as its static method, but within selector context
 * find (method) -> same as its static method, but within selector context
 * cls (property) -> accessors for classList
+* on (method) -> add event listener
+* off (method) -> remove event listener
