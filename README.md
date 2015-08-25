@@ -2,13 +2,12 @@
 
 ## quick how-to
 
-* open index.html to see gallery demos
-* open test.html to see control tests
+* open `index.html` to see gallery demos
+* open `test.html` to see control tests
 
 ## JavaScript
 ### Files
 * query.js -> provides dom traverse method, wrap dom element to internal structure
-* util.js -> provides various utility methods
 * main.js -> provides gallery implementation
 
 ### Query.js
@@ -27,3 +26,9 @@ Query is a constructor function, object instantiated receives:
 * cls (property) -> accessors for classList
 * on (method) -> add event listener
 * off (method) -> remove event listener
+
+### Main.js
+export `GalleryManager` which has an `init` method to initiate all gallery instances on the page.
+
+###
+* Implement a `Gallery` constructor function, which is used by `GalleryManaer`
