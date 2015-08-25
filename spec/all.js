@@ -49,4 +49,9 @@ describe('Query => dom traverse', function() {
         expect(middlesLi[0].attr('data-test')).toBe('0');
         expect(middlesLi[1].attr('data-test')).toBe('1');
     });
+    it('data attribute get/set', function() {
+        var lastEl = Query.find('.last');
+        lastEl.data('name', 'last');
+        expect(lastEl.data('name')).toBe('last');
+    });
 });

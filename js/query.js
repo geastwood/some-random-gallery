@@ -11,7 +11,7 @@ Query.prototype.attr = function(attr, value) {
     return this.el.getAttribute(attr);
 };
 Query.prototype.data = function(str, value) {
-    this.attr('data-' + str, value);
+    return this.attr('data-' + str, value);
 };
 Query.prototype.all = function(selector) {
     return this.el ? Query.all(selector, this.el) : null;
