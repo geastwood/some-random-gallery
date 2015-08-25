@@ -6,18 +6,36 @@ var GalleryManager = (function(Q) {
         this.indicatorEl = this.container.find('.indicator');
         this.leftEl = this.container.find('.move-left');
         this.rightEl = this.container.find('.move-right');
-        this.setup();
+        this.update();
         this.attachEvent();
     };
 
     Gallery.prototype.move = function(direction) {
-        console.log(direction);
+        var currentIndex = Number(this.container.data('current')) - 1,
+            currentItem = this.imageEls[currentIndex],
+            nextItem = null;
+
+        if (direction === 'right') {
+            nextItem = this.imageEls[currentIndex + 1] || this.imageEls[0];
+        } else {
+            nextItem = this.imageEls[currentIndex - 1] || this.imageEls[this.imageEls.length - 1];
+        }
+
+        this.update(nextItem);
     };
 
-    Gallery.prototype.setup = function(count) {
-        Gallery.deactivate(this.imageEls);
-        Gallery.activate(this.imageEls[0]);
-        this.updateIndecator(1);
+    Gallery.prototype.updateMeta = function() {
+        var current = 1, total = this.imageEls.length;
+        this.imageEls.some(function(el, i) {
+            if (el.cls.contains('active')) {
+                current = i + 1;
+                return true;
+            }
+            return false;
+        });
+        this.container.data('current', current);
+        this.container.data('total', total);
+        this.container.data('position', current === 1 ? 'left' : current === total ? 'right' : 'middle');
     };
 
     Gallery.prototype.attachEvent = function() {
@@ -30,8 +48,18 @@ var GalleryManager = (function(Q) {
         });
     };
 
-    Gallery.prototype.updateIndecator = function(count) {
-        this.indicatorEl.el.innerHTML = (count || 1)  + '/' + this.imageEls.length;
+    Gallery.prototype.update = function(toActiveEl) {
+        Gallery.deactivate(this.imageEls);
+        Gallery.activate(toActiveEl || this.imageEls[0]);
+        this.updateMeta();
+        this.updateIndicator();
+    };
+    Gallery.prototype.updateIndicator = function() {
+        var current, total;
+        current = this.container.data('current');
+        total = this.container.data('total');
+
+        this.indicatorEl.el.innerHTML = current + '/' + total;
     };
 
     Gallery.deactivate = function(els) {

@@ -2,17 +2,28 @@
     margin: 0 auto;
     width: 980px;
 }
-
+.gallery-container {
+    overflow: hidden;
+    position: relative;
+}
+.gallery-container.size-900x450 {
+    width: 900px;
+    height: 450px;
+}
 .gallery-container.size-600x350 {
     width: 600px;
     height: 350px;
-    overflow: hidden;
-    position: relative;
 }
 .gallery-content {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+.gallery-content li {
+    display: none;
+}
+.gallery-content li.active {
+    display: block;
 }
 .indicator {
     position: absolute;
@@ -36,4 +47,11 @@
 .navigation .move-right {
     cursor: pointer;
     float: right;
+}
+
+[data-position="left"] .move-left {
+    background-color: red;
+}
+[data-position="right"] .move-right {
+    background-color: red;
 }
