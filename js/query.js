@@ -3,7 +3,7 @@ var Query = (function() {
         this.el = node;
         this.events = {};
     };
-    var proto = Query.proto;
+    var proto = Query.prototype;
     var protoMap = Array.prototype.map;
 
     proto.attr = function(attr, value) {
